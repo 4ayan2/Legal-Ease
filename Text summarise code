@@ -1,0 +1,29 @@
+from transformers import BartTokenizer, BartForConditionalGeneration
+from pdfminer.high_level import extract_text
+
+def extract_text_from_pdf(pdf_path):
+    return extract_text(pdf_path)
+
+
+def generate_summary(filename):
+
+    article = extract_text_from_pdf("media/{}".format(filename))
+    #article = extract_text_from_pdf(filename)
+
+
+    model = BartForConditionalGeneration.from_pretrained("text_summarization/bart-large-cnn",config='text_summarization/bart-large-cnn/config.json', local_files_only=True)
+    tokenizer = BartTokenizer.from_pretrained("text_summarization/bart-large-cnn",local_files_only=True)
+
+    ARTICLE_TO_SUMMARIZE = (article)
+
+    inputs = tokenizer([ARTICLE_TO_SUMMARIZE], max_length=1024, return_tensors="pt")
+
+    summary_ids = model.generate(inputs["input_ids"], num_beams=2, min_length=60)
+    system_summary_bart=tokenizer.batch_decode(summary_ids, skip_special_tokens=True, clean_up_tokenization_spaces=False)[0]
+
+
+    return system_summary_bart
+
+
+#system_summary_bart = generate_summary("test.pdf")
+#print("\nOUTPUT SUMMARY:\n\n",system_summary_bart)
