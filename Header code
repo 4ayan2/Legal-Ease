@@ -1,0 +1,245 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Fables">
+    <meta name="author" content="Enterprise Development">
+    <link rel="shortcut icon" href="assets/custom/images/shortcut.png">
+
+    <title>Teams </title>
+    
+    <!-- animate.css-->  
+    <link href="{% static 'assets/vendor/animate.css-master/animate.min.css' %}" rel="stylesheet">
+    <!-- Load Screen -->
+    <link href="{% static 'assets/vendor/loadscreen/css/spinkit.css' %}" rel="stylesheet">
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i" rel="stylesheet">
+    <!-- Font Awesome 5 -->
+    <link href="{% static 'assets/vendor/fontawesome/css/fontawesome-all.min.css' %}" rel="stylesheet">
+    <!-- Fables Icons -->
+    <link href="{% static 'assets/custom/css/fables-icons.css' %}" rel="stylesheet"> 
+    <!-- Bootstrap CSS --> 
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap-4-navbar.css' %}" rel="stylesheet">
+    <!-- portfolio filter gallery -->
+    <link href="{% static 'assets/vendor/portfolio-filter-gallery/portfolio-filter-gallery.css' %}" rel="stylesheet">
+    <!-- Video Background -->
+    <link href="{% static 'assets/vendor/video-background/video-background.css' %}" rel="stylesheet"> 
+    <!-- FANCY BOX -->
+    <link href="{% static 'assets/vendor/fancybox-master/jquery.fancybox.min.css' %}" rel="stylesheet"> 
+    <!-- RANGE SLIDER -->
+    <link href="{% static 'assets/vendor/range-slider/range-slider.css' %}" rel="stylesheet">
+    <!-- OWL CAROUSEL  --> 
+    <link href="{% static 'assets/vendor/owlcarousel/owl.carousel.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/owlcarousel/owl.theme.default.min.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS FILE -->
+    <link href="{% static 'assets/custom/css/custom.css' %}" rel="stylesheet">
+    <!-- FABLES CUSTOM CSS RESPONSIVE FILE -->
+    <link href="{% static 'assets/custom/css/custom-responsive.css' %}" rel="stylesheet">
+    
+  
+    
+     
+</head>
+
+
+<body>
+
+<div class="search-section">
+    <a class="close-search" href="#"></a>
+    <div class="d-flex justify-content-center align-items-center h-100">
+       
+    </div>
+         
+</div>
+    
+
+    
+
+
+<!-- Start Fables Navigation -->
+<div class="fables-navigation fables-main-background-color py-3 py-lg-0">
+    <div class="container">
+               <div class="row">
+                   <div class="col-12 col-md-10 col-lg-9 pr-md-0">                       
+                       <nav class="navbar navbar-expand-md btco-hover-menu py-lg-2">
+         
+                            <a class="navbar-brand pl-0" href="index.html"><img src="{% static 'assets/custom/images/logo.jpg' %}" height="60px" width="150px" alt="Fables Template" class="fables-logo"></a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#fablesNavDropdown" aria-controls="fablesNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="fables-iconmenu-icon text-white font-16"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="fablesNavDropdown"> 
+                                {% if request.session.admin %}
+                                <ul class="navbar-nav mx-auto fables-nav">   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/index" id="sub-nav1"   >
+                                            Home
+                                        </a>
+                                       
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/viewusers" id="sub-nav1"   >
+                                            View Users
+                                        </a>
+                                       
+                                    </li>
+
+
+                                    <!--<li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="sub-nav3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            View
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="sub-nav3">
+                                            <li><a class="dropdown-item" href="viewteams">Teams</a></li>
+                                            <li><a class="dropdown-item" href="viewmemadmin">Members</a></li>
+                                            
+                                        </ul>
+                                    </li>-->
+                                    
+                                    
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="http://127.0.0.1:8000/logout" id="sub-nav7" aria-haspopup="true" aria-expanded="false">
+                                           Logout
+                                        </a>
+                                    </li>  
+                                </ul> 
+                                {% elif request.session.uid %}
+                                <ul class="navbar-nav mx-auto fables-nav">   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/index" id="sub-nav1">
+                                            Home
+                                        </a>
+                                       
+                                    </li>
+                                    <!--<li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="sub-nav3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Members
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="sub-nav3">
+                                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/member">Add Member</a></li>
+                                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/viewmembers">View Member</a></li>
+                                        </ul>
+                                    </li>
+                                   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/conference" id="sub-nav1"   >
+                                            Conference
+                                        </a>
+                                       
+                                    </li>-->
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/legal_chatbot/0" id="sub-nav1"   >
+                                            Chat
+                                        </a>
+                                       
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/summarization" id="sub-nav1"   >
+                                            Summary Generation
+                                        </a>
+                                       
+                                    </li>
+                   
+                                   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="http://127.0.0.1:8000/logout" id="sub-nav7" aria-haspopup="true" aria-expanded="false">
+                                           Logout
+                                        </a>
+                                    </li>  
+                                </ul> 
+                                {% elif request.session.mid %}
+
+                                <ul class="navbar-nav mx-auto fables-nav">   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/index" id="sub-nav1"   >
+                                            Home
+                                        </a>
+                                       
+                                    </li>
+                              
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/viewconference" id="sub-nav1"   >
+                                            Conference
+                                        </a>
+                                       
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/viewdocs" id="sub-nav1"   >
+                                            Documents
+                                        </a>
+                                       
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/private_key_input_mem" id="sub-nav1"   >
+                                            Chat
+                                        </a>
+                                       
+                                    </li>
+                          
+                                    
+                                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="sub-nav3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Members
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="sub-nav3">
+                                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/member">Add Member</a></li>
+                                            <li><a class="dropdown-item" href="http://127.0.0.1:8000/index">View Member</a></li>
+                                        </ul>
+                                    </li> -->
+                                   
+                                    
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="http://127.0.0.1:8000/logout" id="sub-nav7" aria-haspopup="true" aria-expanded="false">
+                                           Logout
+                                        </a>
+                                    </li>  
+                                </ul> 
+                                {% else %}
+                                <ul class="navbar-nav mx-auto fables-nav">   
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link " href="http://127.0.0.1:8000/index" id="sub-nav1"   >
+                                            Home
+                                        </a>
+                                       
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="http://127.0.0.1:8000/register" id="sub-nav2"  aria-haspopup="true" aria-expanded="false">
+                                            Register
+                                        </a>
+                                        
+                                    </li>
+                                    <!-- <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="sub-nav3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            About
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="sub-nav3">
+                                            <li><a class="dropdown-item" href="about1.html">About 1</a></li>
+                                            <li><a class="dropdown-item" href="about2.html">About 2</a></li>
+                                            <li><a class="dropdown-item" href="about3.html">About 3</a></li> 
+                                        </ul>
+                                    </li>
+                                     -->
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link" href="http://127.0.0.1:8000/login" id="sub-nav7" aria-haspopup="true" aria-expanded="false">
+                                           Login
+                                        </a>
+                                    </li>  
+                                </ul> 
+                                {% endif %}
+      
+
+                    </div>
+                </nav>
+                   </div>
+                   <div class="col-12 col-md-2 col-lg-3 pr-md-0 icons-header-mobile">
+                       
+                   
+                   </div>
+               </div>
+    </div>
+</div> 
+<!-- /End Fables Navigation -->
