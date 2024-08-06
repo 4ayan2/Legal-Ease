@@ -1,0 +1,42 @@
+class AccidentChatbot:
+    def __init__(self):
+        self.questions = {
+            1: "Did you have a road accident?",
+            2: "Were you driving a car, a bike, or another vehicle?",
+            3: "How fast were you driving at the time of the accident?",
+            4: "Did you have a valid driving license?",
+            5: "Did you wear a helmet?",
+            6: "Did you cause any damage to another person or property?",
+            7: "Did you exchange information with the other party involved?",
+            8: "Did you report the accident to the police?",
+            9: "Did you seek medical attention for any injuries?",
+            10: "Do you have any insurance coverage for the accident?"
+        }
+        self.answers = {}
+
+    def ask_question(self, question_id):
+        return self.questions[question_id]
+
+    def record_answer(self, question_id, answer):
+        self.answers[question_id] = answer
+
+    def get_answer(self, question_id):
+        return self.answers.get(question_id, None)
+
+
+def main():
+    chatbot = AccidentChatbot()
+
+    for question_id in range(1, 11):
+        question = chatbot.ask_question(question_id)
+        user_answer = input(question + " ")
+        chatbot.record_answer(question_id, user_answer)
+
+    # Example of accessing answers:
+    print("Your answers:")
+    for question_id, answer in chatbot.answers.items():
+        print(f"Question {question_id}: {answer}")
+
+
+if __name__ == "__main__":
+    main()
